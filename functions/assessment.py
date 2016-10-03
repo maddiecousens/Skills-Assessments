@@ -47,7 +47,7 @@ def cost_with_tax(cost, state, tax = 0.05):
 
     if state == "CA":
         tax = 0.07
-        
+
     #Accounts for user error in input type
     try:
         total_cost = cost + (cost * tax)
@@ -84,8 +84,7 @@ def is_berry(fruit_name):
     False
 
     """
-    #Note, doesn't account for if user enters integer. This catch is shown
-    #in shipping_cost
+    #Note, doesn't account for if user enters integer.
     if fruit_name.isalpha():
         return fruit_name.lower() in ["strawberry", "cherry", "blackberry"]
     else:
