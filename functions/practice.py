@@ -67,39 +67,58 @@ PART TWO:
 # 1. Write a function called 'hello_world' that does not take any arguments and
 #    prints "Hello World".
 
-# def hello_world():
-#     print "Hello World"
+def hello_world():
+    print "Hello World"
 
 
 # 2. Write a function called 'say_hi' that takes a name as a string and
 #    prints "Hi" followed by the name.
 
-# def say_hi(name):
-#     print "Hi {}".format(name)
+def say_hi(name):
+    print "Hi {}".format(name)
 
 
 # 3. Write a function called 'print_product' that takes two integers and multiplies
 #    them together. Print the result.
 
-
+def print_product(int1, int2):
+    print int1 * int2
 
 
 # 4. Write a function called 'repeat_string' that takes a string and an integer and
 #    prints the string that many times
+
+def repeat_string(repeated_string, number):
+    print repeated_string * number
 
 
 # 5. Write a function called 'print_sign' that takes an integer and prints "Higher
 #    than 0" if higher than zero and "Lower than 0" if lower
 #    than zero. If the integer is 0 print "Zero".
 
+def print_sign(number):
+    if number > 0:
+        print "Higher than 0"
+    elif number < 0:
+        print "Lower than 0"
+    else:
+        print "Zero"
+
 
 # 6. Write a function called 'is_divisible_by_three' that takes an integer and returns a
 #    boolean (True or False), depending on whether the number
 #    is evenly divisible by 3.
 
+def is_divisible_by_three(number):
+    return (number % 3 == 0)
+
+
 
 # 7. Write a function called 'num_spaces' that takes a sentence as one string and
 #    returns the number of spaces.
+
+def num_spaces(sentence):
+    return len(sentence.split()) - 1
 
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price and a
@@ -107,6 +126,10 @@ PART TWO:
 #    (price + price * tip). **However:** passing in the tip
 #    percentage should be optional; if not given, it should
 #    default to 15%.
+
+def total_meal_price(meal_price, tip_percent = .15):
+        total_price = meal_price + (meal_price * tip_percent)
+        return total_price
 
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an argument and
@@ -119,6 +142,23 @@ PART TWO:
 #    variables --- sign and parity (whether it's even or odd).
 #    Print sign and parity.
 
+def sign_and_parity(number):
+    positive_or_negative = None
+    even_or_odd = None
+    if number < 0:
+        positive_or_negative = "Negative"
+    else:
+        positive_or_negative = "Positive"
+    if number % 2 == 0:
+        even_or_odd = "Even"
+    else:
+        even_or_odd = "Odd"
+    return [even_or_odd, positive_or_negative]
+
+parity, sign = sign_and_parity(5)
+print sign, parity
+
+
 
 ################################################################################
 # PART TWO
@@ -128,6 +168,9 @@ PART TWO:
 #    job title defaults to "Engineer" if a job title is not passed in.
 #    Return the person's title and name in one string.
 
+def full_title(name, job_title = "Engineer"):
+        return "{} {}".format(job_title, name)
+
 # 2. Given a recipient name & job title and a sender name,
 #    print the following letter:
 #
@@ -136,6 +179,13 @@ PART TWO:
 #
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
+
+def write_letter(name, title, sender):
+
+    print "Dear {}, I think you are amazing! Sincerely, {}".format(full_title(name, title), 
+                                                        sender)
+                                                        
+
 
 
 #####################################################################
