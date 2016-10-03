@@ -18,8 +18,11 @@ def all_odd(numbers):
     """
     odd_numbers = []
     for number in numbers:
-        if not(number % 2 == 0):
-            odd_numbers.append(number)
+        try:
+            if not(number % 2 == 0):
+                odd_numbers.append(number)
+        except TypeError:
+            print "List contains non-number: {}".format(number)
 
     return odd_numbers
 
@@ -73,7 +76,7 @@ def foods_in_common(foods1, foods2):
         []
 
     """
-
+    #Turn each list into a set, perform set math using & operator, return list
     return sorted(list(set(foods1) & set(foods2)))
 
 
@@ -91,6 +94,7 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
     every_other = []
+    #Append every other item, beginning with first using indexes divisible by 2
     for i, item in enumerate(items):
         if i % 2 == 0:
             every_other.append(item)
@@ -118,6 +122,8 @@ def largest_n_items(items, n):
         >>> largest_n_items([3, 3, 3, 2, 1], 2)
         [3, 3]
     """
+    #Sort items, take last three indices
+    #Note, if user enters strings, numbers will be sorted before strings
     items.sort()
     if n:
         return items[-n:]
