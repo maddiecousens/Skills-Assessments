@@ -1,2 +1,14 @@
 /* Your CSS goes here */
 
+#customcontainerwidth {
+    width: 900px;
+}
+
+input, .form-control {
+    background-color: #ffffcc;
+}
+
+.btn {
+    background-color: #FFFF00;
+    color: black;
+}
