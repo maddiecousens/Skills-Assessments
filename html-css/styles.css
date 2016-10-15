@@ -1,14 +1,34 @@
 /* Your CSS goes here */
 
-#customcontainerwidth {
-    width: 900px;
-}
+/*#customcontainerwidth {
+    width: 1000px;
+}*/
 
 input, .form-control {
-    background-color: #ffffcc;
+    background-color: #FFFFF0;
 }
 
 .btn {
-    background-color: #FFFF00;
+    background-color: #FDFD96;
     color: black;
+    border-width: 1px;
+    text-transform: bold;
+    box-shadow: 0 3px 0 0 #7E7E7E;
+    font-weight:bold;
+
 }
+
+.btn-primary:hover {
+    background: pink;
+}
+
+input[name="lastname"] {
+    font-weight: bold;
+}
+
+
+/*If I wasn't using the bootstrap 'well' class I would add put a border around my text
+using this:*/
+/*.well {
+    border: 1px solid black;
+}*/

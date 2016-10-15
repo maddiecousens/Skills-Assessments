@@ -4,9 +4,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 
-
 # Required to use Flask sessions and the debug toolbar
-app.secret_key = "ABC"
+app.secret_key = "msschermerhornc"
 
 @app.route("/")
 def index_page():
@@ -18,6 +17,12 @@ def index_page():
     # and return that result of rendering this, like:
     #
     # return render_template("index.html")
+
+@app.route("/application-form")
+def application_form():
+    """Show application form page"""
+
+    return render_template('application_form.html')
 
 
 if __name__ == "__main__":
