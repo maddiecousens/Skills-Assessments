@@ -35,6 +35,7 @@ print emp2.__class__.__name__
 #     all instances
 # - issublass(SubClass, ParentClass)
 # - isisntance(instance, Class)
+# - hasattr(instance, attribute)
 #####################################################################
 
 class Parent:        # define parent class
@@ -68,6 +69,7 @@ issubclass(Child, Parent) # Returns True
 #issubclass(Child, Hello) # Returns NameError: 'Hello' is not defined
 isinstance(c, Child)    # Returns True
 isinstance(c, Parent)   # Returns True
+hasattr(c, parentAttr)
 
 #####################################################################
 # OVERLOADING OPERATORS
@@ -126,6 +128,10 @@ counter._JustCounter__secretCount
 # False
 # the default behavior of the == operator is the same as the is operator; 
 #     it checks object identity, not object equivalence
+# Copy doesn't copy attributes down the line, it now just points at 
+#     the same thing. so box.corner and box2.corner are both pointing
+#     at the same instance of point. Thus changing one changes the other
+# Need to use deepcopy to make a truly separate instance!
 #####################################################################
 
 class Point(object):
@@ -145,6 +151,12 @@ box.corner.y = 0.0
 
 import copy
 box2 = copy.copy(box)
+box2.corner.x #0.0
+box.corner.x #0.0
+box2.corner.x = 1.0
+box.corner.x #now equals 1.0
+
+box3 = copy.deepcopy(box)
 
 
 
