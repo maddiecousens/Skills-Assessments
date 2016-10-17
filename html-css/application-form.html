@@ -2,47 +2,63 @@
 
 <html>
 <head>
-    <title>Skills-HTML-CSS</title>
+    <title>Application Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
-<!-- main page container -->
+<!-- Page Jumbotron header -->
 <div class="container" id="customcontainerwidth" role="main">
-
-    <!-- page heading -->
+    
     <div class="jumbotron">
-        <h1>Looking for a job?</h1>
-        <p> You've come to the right place :)</p>
+        <h1>
+            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+            Corgi Recruiters
+        </h1>
+        <p>Let these melon corgis help YOU find a job!</p>
     </div>
 
+    <!-- Page header -->
     <div class="page-header">
         <h1>Apply Online Today</h1>
     </div>
     <div class="well">
-        <p>Instructions: please enter your first name, last name, salary,
-            and job for which you would like to apply. </p>
+        Please enter your first name, last name, minimum required salary,
+        and job for which you would like to apply.
     </div>
 
     <!-- application form -->
-    <form action="/application">
+    <form action="/application" method="post">
     <div class="form-group">
 
     <div class="row">
         <div class="col-xs-12 col-sm-6">
             <div class="input-group">
                 <label for="firstname">First Name</label>
-                <input type="text" class="form-control" name="firstname" aria-describedby="firstname" 
-                placeholder="Enter First Name">
+                <input type="text" class="form-control" id="firstname" name="firstname" 
+                aria-describedby="firstname" placeholder="Enter First Name" required>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-6">
             <div class="input-group">
                 <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" name="lastname" aria-describedby="lastname" 
-                placeholder="Enter Last Name">
+                <input type="text" class="form-control" id="lastname" name="lastname" 
+                aria-describedby="lastname" placeholder="Enter Last Name" required>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!-- I'm looking forward to learning how to allow commas using javascript -->
+    <div class="row">
+        <div class="col-xs-8">
+            <label for="salary">Salary</label>
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="number" class="form-control" id="salary" name="salary"
+                aria-describedby="salary" placedholder="Enter Salary Range" required>
             </div>
         </div>
     </div>
@@ -51,36 +67,26 @@
 
     <div class="row">
         <div class="col-xs-8">
-            <label for="salary">Salary</label>
-            <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="number" class="form-control" id="salary" name="number" aria-describedby"salary" placedholder="Enter Salary Range">
-            </div>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-        <div class="col-xs-8"
          <div class="input-group">
-            <label for="joblist">Type of Job</label>
-            <select class="form-control" id="joblist">
+            <label for="joblist">Choose type of job</label>
+            <select class="form-control" id="joblist" name="jobtype"
+            aria-describedby="jobtype" required>
               <option>Software Engineer</option>
               <option>QA Engineer</option>
               <option>Product Manager</option>
             </select>
         </div>
     </div>
+    </div>
+    
 
     <br>
-
+    <!-- submit button -->
     <button type="submit" class="btn btn-primary">Submit</button>
 
     </div>
     </form>
-
 </div>
+
 </body>
 </html>
-
