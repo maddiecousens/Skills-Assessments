@@ -1,13 +1,77 @@
-<!doctype html>
-<html>
-<head>
-    <title>Skills-Web</title>
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
-<body>
+<!-- Import base html -->
 
-<!-- This page needs a form that can capture data about the user's
-first name, last name, job title, and salary requirements. -->
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %} Application Form {% endblock %}
+
+{% block content %}
+
+    <!-- Page header -->
+    <div class="page-header">
+        <h1>Apply Online Today</h1>
+    </div>
+    <div class="well">
+        Please enter your first name, last name, minimum required salary,
+        and job for which you would like to apply.
+    </div>
+
+    <!-- application form -->
+    <form action="/application" method="post">
+    <div class="form-group">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="input-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" name="firstname" required aria-describedby="firstname" 
+                placeholder="Enter First Name">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="input-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastname" required aria-describedby="lastname" 
+                placeholder="Enter Last Name">
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!-- I'm looking forward to learning how to allow commas using javascript -->
+    <div class="row">
+        <div class="col-xs-8">
+            <label for="salary">Salary</label>
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="number" class="form-control" id="salary" name="salary" aria-describedby "salary" placedholder="Enter Salary Range" required>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-xs-8">
+         <div class="input-group">
+            <label for="joblist">Type of Job</label>
+            <select class="form-control" id="joblist" name="jobtype" aria-describedby="jobtype" required>
+              <option>Software Engineer</option>
+              <option>QA Engineer</option>
+              <option>Product Manager</option>
+            </select>
+        </div>
+    </div>
+    </div>
+    
+
+    <br>
+    <!-- submit button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+    </form>
+
+</div>
+
+{% endblock %}

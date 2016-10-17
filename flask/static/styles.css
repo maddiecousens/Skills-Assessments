@@ -1,1 +1,49 @@
-/* Your styles can go here. */
+/*CSS for assignment instructions*/
+
+/*Form input background colors to yellow*/
+input, .form-control {
+    background-color: #FFFFF0;
+}
+
+/*Submit button to yellow*/
+.btn {
+    background-color: #ffff4c;
+    color: black;
+    border-width: 1px;
+    text-transform: bold;
+    box-shadow: 0 3px 0 0 #7E7E7E;
+    font-weight:bold;
+}
+
+/*Last name field bold*/
+input[name="lastname"] {
+    font-weight: bold;
+}
+
+/*I used the boostrap 'well' class which gives a natural border.
+If I wasn't using  this class, this is how I would creat a text border:
+/*.well {
+    border: 1px solid black;
+}*/
+
+
+/********************************/
+
+/*Additional CSS*/
+
+.btn-primary:hover {
+    background: pink;
+}
+
+.jumbotron {
+    background-image: url("http://www.lifewithdogs.tv/wp-content/uploads/2016/05/watermelon-7.jpg");
+    background-color: #7EA257;
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+p {
+    font-size: 20px;
+}
+

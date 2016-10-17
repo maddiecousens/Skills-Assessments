@@ -1,11 +1,19 @@
-<!doctype html>
-<html>
-<head>
-    <title>Application Response</title>
-</head>
-<body>
+<!-- Import base html -->
+{% extends 'base.html' %}
 
-<!-- fill this in -->
+{% block title %} Application {% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+<!-- Thank you message to user -->
+<div class="page-header">
+    <h2>Thank you!</h2>
+</div>
+
+<p>
+    {{ first_name }} {{ last_name }}, we have received your application
+    to be a {{ job_type }}. We have noted that your minimum salary requirement 
+    is ${{ "{:,d}".format(salary) }} dollars.
+</p>
+
+{% endblock %}
