@@ -1,0 +1,319 @@
+(lp0
+ccopy_reg
+_reconstructor
+p1
+(c__main__
+Problem
+p2
+c__builtin__
+object
+p3
+Ntp4
+Rp5
+(dp6
+S'task'
+p7
+S'Select all fields for all brands in the brands table.\n\nThe result set for this query should be every record in the brands table.'
+p8
+sS'hint'
+p9
+S"Use the wildcard '*' (without quotes) in your SELECT statement."
+p10
+sS'instruction'
+p11
+S''
+p12
+sS'solution'
+p13
+NsS'num'
+p14
+I1
+sS'solution_hash'
+p15
+S'0ac8af41f2236a9e6f767f64b8b5995e'
+p16
+sbag1
+(g2
+g3
+Ntp17
+Rp18
+(dp19
+g7
+S'Select all fields for all car models made by Pontiac in the \nmodels table. \n\nThe result set should be:\n  id   | year  | brand_name |    name\n-------+-------+------------+------------\n    25 |  1961 | Pontiac    | Tempest\n    27 |  1962 | Pontiac    | Grand Prix\n    36 |  1963 | Pontiac    | Grand Prix\n    42 |  1964 | Pontiac    | GTO\n    43 |  1964 | Pontiac    | LeMans\n    44 |  1964 | Pontiac    | Bonneville\n    45 |  1964 | Pontiac    | Grand Prix\n(7 rows)\n'
+p20
+sg9
+S'Use a WHERE clause.'
+p21
+sg11
+g12
+sg13
+Nsg14
+I2
+sg15
+S'346156c98ca298fbacdb48a4d3ecfbdd'
+p22
+sbag1
+(g2
+g3
+Ntp23
+Rp24
+(dp25
+g7
+S'Select the brand name and model name for all models made in \n1964 from the models table. \n\nThe result set should be:\n brand_name |    name\n------------+-------------\n Chevrolet  | Corvette\n Ford       | Mustang\n Ford       | Galaxie\n Pontiac    | GTO\n Pontiac    | LeMans\n Pontiac    | Bonneville\n Pontiac    | Grand Prix\n Plymouth   | Fury\n Studebaker | Avanti\n Austin     | Mini Cooper\n (10 rows)\n '
+p26
+sg9
+g21
+sg11
+g12
+sg13
+Nsg14
+I3
+sg15
+S'bd4f5f5609bf893ada3256b3a31c5d1f'
+p27
+sbag1
+(g2
+g3
+Ntp28
+Rp29
+(dp30
+g7
+S'Select the model name, brand name, and headquarters for \nthe Ford Mustang from the models and brands tables.\n\nThe result set should be:\n  name   | brand_name | headquarters\n---------+------------+--------------\n Mustang | Ford       | Dearborn, MI\n (1 rows)\n'
+p31
+sg9
+S'Use a JOIN.'
+p32
+sg11
+g12
+sg13
+Nsg14
+I4
+sg15
+S'f14123d9861a2c06cbcbbc774358550b'
+p33
+sbag1
+(g2
+g3
+Ntp34
+Rp35
+(dp36
+g7
+S'Select all rows for the three oldest brands from the brands\ntable.\n\nThe result set should be:\n  id   |    name    | founded |    headquarters     | discontinued\n-------+------------+---------+---------------------+--------------\n    10 | Studebaker |    1852 | South Bend, Indiana |         1967\n    13 | Rambler    |    1901 | Kenosha, Washington |         1969\n     6 | Cadillac   |    1902 | New York City, NY   |\n(3 rows)\n'
+p37
+sg9
+S'Use LIMIT and ORDER BY.'
+p38
+sg11
+g12
+sg13
+Nsg14
+I5
+sg15
+S'd60fb233eba1fd773dad929381e70d51'
+p39
+sbag1
+(g2
+g3
+Ntp40
+Rp41
+(dp42
+g7
+S'Count the Ford models in the database The output should be a \nnumber.\n\nThe result set should be:\n   count\n------------\n          6\n(1 rows)\n'
+p43
+sg9
+S'Use the COUNT aggregate function.'
+p44
+sg11
+g12
+sg13
+Nsg14
+I6
+sg15
+S'165f9bc330e92fe684bf6607c143f29b'
+p45
+sbag1
+(g2
+g3
+Ntp46
+Rp47
+(dp48
+g7
+S'Select the name of any and all car brands that are not \ndiscontinued.\n\nThe result set should be:\n   name\n-----------\n Ford\n Chrysler\n Chevrolet\n Cadillac\n BMW\n Buick\n Tesla\n(7 rows)\n'
+p49
+sg9
+S'Check for a NULL value in the discontinued field.'
+p50
+sg11
+g12
+sg13
+Nsg14
+I7
+sg15
+S'088ef99eeb25b8ebe745ad5b7bbc9acf'
+p51
+sbag1
+(g2
+g3
+Ntp52
+Rp53
+(dp54
+g7
+S'Select everything from rows 15-24 of the models table in \nalphabetical order by name. The result set should have 10 records.\n\nThe result set should be:\n  id   | year  | brand_name |   name\n-------+-------+------------+----------\n    38 |  1963 | Chevrolet  | Corvette\n    11 |  1957 | Chevrolet  | Corvette\n    20 |  1960 | Chevrolet  | Corvette\n     5 |  1953 | Chevrolet  | Corvette\n    13 |  1958 | Chevrolet  | Corvette\n    10 |  1956 | Chevrolet  | Corvette\n    17 |  1959 | Chevrolet  | Corvette\n    26 |  1961 | Chevrolet  | Corvette\n     8 |  1955 | Chevrolet  | Corvette\n    28 |  1962 | Chevrolet  | Corvette\n(10 rows)\n'
+p55
+sg9
+S'Use LIMIT, ORDER BY, and OFFSET.'
+p56
+sg11
+g12
+sg13
+Nsg14
+I8
+sg15
+S'564a8d9cd948e1353d2ab6b83b1c61c8'
+p57
+sbag1
+(g2
+g3
+Ntp58
+Rp59
+(dp60
+g7
+S"Select the brand, name, and year the model's brand was \nfounded for all of the models from 1960. Include row(s)\nfor model(s) even if their brand(s) are not in the brands table.\n\nNote that in the result set, the year the brand was founded should be NULL if\nthe brand is not in the brands table.\n\nSo, the result set should be:\n   name   | brand_name | founded\n----------+------------+---------\n Corvette | Chevrolet  |    1911\n Corvair  | Chevrolet  |    1911\n Rockette | Fairthorpe |    1954\n Fillmore | Fillmore   |\n(4 rows)\n"
+p61
+sg9
+S"Make sure to show the brand_name for even the models that don't have\nbrands in the brand table using the brand_name field in the models table."
+p62
+sg11
+g12
+sg13
+Nsg14
+I9
+sg15
+S'9d8b7d20116753da25882b5e0d514d84'
+p63
+sbag1
+(g2
+g3
+Ntp64
+Rp65
+(dp66
+g7
+S'Modify the query so that it shows all brands that are \nnot discontinued regardless of whether they have any models in the models table.\nThe correct output should not include records for Fillmore and Outback, but should\nshow information about Tesla, a brand with no models in the models table.'
+p67
+sg9
+S'Think about the meaning of table ordering in the LEFT JOIN clause.\nWhat does it mean to LEFT JOIN table A to table B? What does it mean to \nleft join table B to table A?'
+p68
+sg11
+S'Currently, the query below selects all models regardless of\nwhether their brands are in the brands table. For example, included in the output\nare the models Fillmore and Outback.\n\n  SELECT b.name,\n         b.founded,\n         m.name\n  FROM models AS m\n    LEFT JOIN brands AS b\n      ON b.name = m.brand_name\n  WHERE b.discontinued IS NULL;'
+p69
+sg13
+Nsg14
+I10
+sg15
+S'd475654265e5375db9933ca82226a5b6'
+p70
+sbag1
+(g2
+g3
+Ntp71
+Rp72
+(dp73
+g7
+S"Modify the query so it only selects models whose brands ARE in the brands table.\nSo, we shouldn't see models who brands aren't in the brands table (a.k.a. Fillmore,\nOutback) nor should we see information about brands who don't have any models in \nthe models table (a.k.a. Tesla)."
+p74
+sg9
+S'Think about a kind of join that matches both tables equally to\neach other.'
+p75
+sg11
+S'Currently, the query below shows all models, regardless of whether\ntheir brands are in the brands table. For example, we again see that Fillmore\nand Outback are in the result set.\n\n  SELECT m.name,\n         m.brand_name,\n         b.founded\n  FROM models AS m\n    LEFT JOIN brands AS b\n      ON b.name = m.brand_name;'
+p76
+sg13
+Nsg14
+I11
+sg15
+S'c849ebd029ef5e12c56e0bdd3035bfcd'
+p77
+sbag1
+(g2
+g3
+Ntp78
+Rp79
+(dp80
+g7
+S'Modify the query so that it only selects brands that do NOT have any\nmodels in the models table.\n\nThe correct result set is:\n\n name  | founded\n-------+---------\n Tesla |    2003\n(1 rows)'
+p81
+sg9
+S"There's no need to change the type of join in this query; simply\nmodify the WHERE clause."
+p82
+sg11
+S'Currently, the query below returns all brands who have models \nafter the year 1940.\n\n  SELECT b.name,\n         founded\n  FROM brands AS b\n    LEFT JOIN models AS m\n      ON b.name = m.brand_name\n  WHERE m.year > 1940;'
+p83
+sg13
+Nsg14
+I12
+sg15
+S'65fdfd0f164ffd90ae7a671a28ddb1a4'
+p84
+sbag1
+(g2
+g3
+Ntp85
+Rp86
+(dp87
+g7
+S'Modify the query to add another field to the results that gives \nthe number of years from the year of the model until the brand becomes \ndiscontinued.\n\nDisplay this new field with the name years_until_brand_discontinued. The correct\nresult set is:\n\n    name    |       name       | year | discontinued | years_until_brand_discontinued\n------------+------------------+------+--------------+--------------------------------\n Austin     | Mini             | 1959 |         1987 |                             28\n Austin     | Mini             | 1963 |         1987 |                             24\n Austin     | Mini Cooper      | 1961 |         1987 |                             26\n Austin     | Mini Cooper      | 1964 |         1987 |                             23\n Austin     | Mini Cooper S    | 1963 |         1987 |                             24\n Fairthorpe | Rockette         | 1960 |         1976 |                             16\n Hillman    | Minx Magnificent | 1950 |         1981 |                             31\n Plymouth   | Fury             | 1964 |         2001 |                             37\n Pontiac    | Bonneville       | 1964 |         2010 |                             46\n Pontiac    | GTO              | 1964 |         2010 |                             46\n Pontiac    | Grand Prix       | 1962 |         2010 |                             48\n Pontiac    | Grand Prix       | 1963 |         2010 |                             47\n Pontiac    | Grand Prix       | 1964 |         2010 |                             46\n Pontiac    | LeMans           | 1964 |         2010 |                             46\n Pontiac    | Tempest          | 1961 |         2010 |                             49\n Rambler    | Classic          | 1963 |         1969 |                              6\n Studebaker | Avanti           | 1961 |         1967 |                              6\n Studebaker | Avanti           | 1962 |         1967 |                              5\n Studebaker | Avanti           | 1963 |         1967 |                              4\n Studebaker | Avanti           | 1964 |         1967 |                              3\n(20 rows)'
+p88
+sg9
+S'You can use AS to rename a field in the result set.'
+p89
+sg11
+S'The query below shows some brand information about each model \nin the models table whose brand has been discontinued.\n\n  SELECT b.name,\n         m.name,\n         m.year,\n         b.discontinued\n  FROM models AS m\n    LEFT JOIN brands AS b\n      ON m.brand_name = b.name\n  WHERE b.discontinued IS NOT NULL\n  ORDER BY b.name, m.name, m.year;'
+p90
+sg13
+Nsg14
+I13
+sg15
+S'19bbfd5db52ab54a6d8414edfdde0e52'
+p91
+sbag1
+(g2
+g3
+Ntp92
+Rp93
+(dp94
+g7
+S'Select the name of any brand with more than 5 models in the \ndatabase using a HAVING clause.\n\nThe correct result set is:\n\n brand_name\n------------\n Chevrolet\n Pontiac\n Ford\n(3 rows)\n'
+p95
+sg9
+S'In order to use HAVING, a GROUP BY clause is also necessary. You do\nnot need to use a JOIN.'
+p96
+sg11
+S'FURTHER STUDY'
+p97
+sg13
+Nsg14
+I14
+sg15
+S'240d888e794146be69d2fea1b9235d17'
+p98
+sbag1
+(g2
+g3
+Ntp99
+Rp100
+(dp101
+g7
+S'Using a subquery, select the name and year of any model whose \nyear is the same year that ANY brand was founded.\n\nThe result set should be:\n\n   name    | year\n-----------+-------\n Imperial  |  1926\n Corvette  |  1954\n Fleetwood |  1954\n(3 rows)'
+p102
+sg9
+S'Use the IN keyword.'
+p103
+sg11
+g12
+sg13
+Nsg14
+I15
+sg15
+S'258434c8ae25afbcc3555f80e5d39555'
+p104
+sba.
