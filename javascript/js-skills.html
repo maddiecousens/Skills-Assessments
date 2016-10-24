@@ -137,7 +137,7 @@
     document.getElementById('message-to-change').innerHTML = 'goodbye';
   }
   // Click event listener
-  helloButton.addEventListener('click', changeHello)
+  helloButton.addEventListener('click', changeHello);
 
 </script>
 
@@ -263,6 +263,7 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script>
   "use strict";
+
   // Event Handler
   function alertPopUp(evt) {
     alert('HELLO THIS IS AN ALERT. ALERT! ALERT!');
@@ -298,14 +299,14 @@
 <script>
   "use strict";
   //Select image element
-  var catImage = $('#kittenz-rule')
+  var catImage = $('#kittenz-rule');
 
   // Event Handler
   function downWithCat(evt) {
-    catImage.attr('src', 'https://s-media-cache-ak0.pinimg.com/236x/88/bb/f7/88bbf7b15d00a452cec82ef91a3a4f61.jpg')
+    catImage.attr('src', 'https://s-media-cache-ak0.pinimg.com/236x/88/bb/f7/88bbf7b15d00a452cec82ef91a3a4f61.jpg');
   }
   // Event Listener
-  catImage.on('dblclick', downWithCat)
+  catImage.on('dblclick', downWithCat);
   
 </script>
 
@@ -400,8 +401,13 @@
   function agreeMessage(evt) {
     // Prevent form submission
     evt.preventDefault();
-    // Compose agreeing text with user input
-    var agreeText = "I love " + $('#favorite-food-input').val() + ", too!";
+
+    // Compose agree text, if input empty -different message
+    if ($('#favorite-food-input').val()) {
+      var agreeText = "I love " + $('#favorite-food-input').val() + ", too!";
+    } else {
+      agreeText = "I'm indecisive too.... ";
+    }
     // Add agreeText to HTML
     $('#agreeable-text').html(agreeText);
   }
@@ -443,26 +449,27 @@
     // Generate random number between 1 and 100
     var randomNumber = Math.floor(Math.random() * 100) + 1;
     // Set variable condition for while loop
-    var continuePlaying = true
+    var continuePlaying = true;
 
     // Prompt user for first guess
-      var guess = prompt("I have chosen a random number between 1 and 100, please take a guess!");
+    var guess = prompt("I have chosen a random number between 1 and 100, please take a guess!");
 
-    while (continuePlaying) {
+    while (continuePlaying && guess !== null) {
+      
       // Prompt for new guess if too high or too low. Exit if correct
       if (guess > randomNumber) {
         guess = prompt("Too high, please guess again.");
       } else if (guess < randomNumber) {
         guess = prompt("Too low, please guess again.");
       } else {
-        continuePlaying = false
-        alert("Congrats! That's correct!")
+        continuePlaying = false;
+        alert("Congrats! That's correct!");
       }
     }
   }
   
   // Add click event listener to guessing game button
-  $('#play-guessing-game').on('click', guessingGame)
+  $('#play-guessing-game').on('click', guessingGame);
 
 </script>
 
@@ -526,9 +533,11 @@
 
     // Display whether guess is too high or too low.
     if (guess > randomNumber) {
-        displayText.html("Too high, please guess again.");
+        guessBox.val("");
+        displayText.html(guess + " is too high, please guess again.");
       } else if (guess < randomNumber) {
-        displayText.html("Too low, please guess again.");
+        guessBox.val("");
+        displayText.html(guess + "is too low, please guess again.");
       } else {
         // If guess is correct, clear field, disable guessing features 
         //  and enable Play button.
@@ -537,7 +546,6 @@
         playButton.prop('disabled', false);
         guessBox.val("");
         guessBox.prop('disabled', true);
-
       }
   }
 
@@ -550,7 +558,7 @@
     playButton.prop('disabled', true);
 
     // Display instructions
-    displayText.html("Guess a number between 1 and 100 :)")
+    displayText.html("Guess a number between 1 and 100 :)");
 
     // Generate random number btwn 1 and 100
     randomNumber = (Math.floor(Math.random() * 100) + 1);
