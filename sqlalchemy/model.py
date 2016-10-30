@@ -1,7 +1,6 @@
 """Models and database functions for cars db."""
 
 from flask_sqlalchemy import SQLAlchemy
-
 # Here's where we create the idea of our database. We're getting this through
 # the Flask-SQLAlchemy library. On db, we can find the `session`
 # object, where we do most of our interactions (like committing, etc.)
@@ -16,24 +15,18 @@ class Model(db.Model):
     """Car model."""
 
     __tablename__ = "models"
-    
-    # Auto_increment on correct number?
-    # Validation? Unique?
-    # auto_increment=True?
-    # default values?
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     year = db.Column(db.Integer, nullable=False)
     brand_name = db.Column(db.String(50), db.ForeignKey('brands.name')
                                         , nullable=True)
     name = db.Column(db.String(50), nullable=False)
 
-    # Add an order by statement???? # EX:
-    # dept = db.relationship(
-    #     'Department',
-    #     backref=db.backref('employees', order_by=emp_id))
-
-    brand = db.relationship('Brand', backref=db.backref('models'))
+    # Set up relationship. order_by statement gives back models in alphabetical
+    #   order
+    brand = db.relationship(
+              'Brand', 
+              backref=db.backref('models', order_by=name))
 
 
     def __repr__(self):
@@ -48,8 +41,7 @@ class Brand(db.Model):
 
     __tablename__ = "brands"
 
-    #auto_increment=True
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     founded = db.Column(db.Integer, nullable=True)
     headquarters = db.Column(db.String(50), nullable=True)
@@ -80,7 +72,7 @@ def connect_to_db(app):
 
     # Configure to use our database
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres:///cars'
-    # app.config['SQLALCHEMY_ECHO'] = True
+    app.config['SQLALCHEMY_ECHO'] = True
     db.app = app
     db.init_app(app)
 

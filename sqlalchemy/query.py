@@ -100,29 +100,106 @@ def get_model_info(year):
     '''Takes in a year, and prints out each model, brand_name, and brand
     headquarters for that year using only ONE database query.'''
 
-    pass
+    models = Model.query.filter(Model.year == year).all()
 
+    if models:
+        for model in models:
+            print ( "Model name: %s, Brand name: %s, Headquarers: %s" 
+                    % (model.name, model.brand_name, model.brand.headquarters))
+    else:
+        print "No Models for that year"
+
+    ## Alternate Way ##
+
+    # models = (db.session
+    #          .query(Model.name, Model.brand_name, Brand.headquarters)
+    #          .join(Brand)
+    #          .filter(Model.year==year).all())
+    # if models:
+    #     for model in models:
+    #         print ", ".join(model)
+    # else:
+    #     print "No Models for that year"
+ 
 def get_brands_summary():
     '''Prints out each brand name, and each model name for that brand
      using only ONE database query.'''
 
-    pass
+    # Query for all brands
+    brands = Brand.query.all()
 
+    # For each brand, print brand name, model, model year
+    for brand in brands:
+        print brand.name
+
+        if brand.models:
+            for model in brand.models:
+                print "\t %s, %s" % (model.name, model.year)
+        else:
+            print "\t No Models"
+
+    # # Alternate Way ##
+
+    # # Query for All Cars
+    # cars = db.session.query(Brand.name, Model.name, Model.year).outerjoin(Model).all()
+    
+    # # Create Car Dictionary
+    # from collections import defaultdict
+    # all_cars = defaultdict(list)
+
+    # for brand, model, year in cars:
+    #     all_cars[brand].append((model,year))
+    
+    # # Print Car Dictionary
+    # for brand, models in all_cars.iteritems():
+    #     print brand
+    #     if models[0][0]:
+    #         for model, year in models:
+    #             print "\t %s, %s" % (model, year)
+    #     else:
+    #         print "\t No Models"
+    
 # -------------------------------------------------------------------
 # Part 2.5: Discussion Questions (Include your answers as comments.)
 
 # 1. What is the returned value and datatype of
 # ``Brand.query.filter_by(name='Ford')``?
 
+# The datatype is a Flask SQLAlchemy query object (flask_sqlalchemy.BaseQuery). 
+# It doesn't have a value yet 
+# but has a bunch of methods/attributes that can be called upon it. 
+# Once it is executed, the value will either be a list of one Brand 
+# object if the .all  method is used, or just the Brand object if .one() is used
+
 # 2. In your own words, what is an association table, and what *type* of
 # relationship does an association table manage?
+
+# An association table is a table that simply links two tables together,
+# resolving one many-to-many relationship into two one-to-many relationships.
+# It differs from a middle table in that it stores no other information other 
+# than that necessary to link the two tables. It is necessary to use assocation 
+# tables, as many-to-many relationships are almost impossible to manage 
+# in a relationshal database.
 
 # -------------------------------------------------------------------
 # Part 3
 
 def search_brands_by_name(mystr):
-    pass
+    """Design a function in python that takes in any string as parameter, 
+    and returns a list of objects that are brands whose name contains or is 
+    equal to the input string."""
+
+    search_term = '%{}%'.format(mystr)
+    return Brand.query.filter(Brand.name.like(search_term)).all()
+
 
 
 def get_models_between(start_year, end_year):
-    pass
+    """Design a function that takes in a start year and end year (two integers),
+     and returns a list of objects that are models with years that fall between 
+     the start year (inclusive) and end year (exclusive)."""
+
+    return Model.query.filter(Model.year.between(start_year,end_year)).all()
+
+
+
