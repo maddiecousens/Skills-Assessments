@@ -100,8 +100,10 @@ def get_model_info(year):
     '''Takes in a year, and prints out each model, brand_name, and brand
     headquarters for that year using only ONE database query.'''
 
+    # Get all models, pre-load brand relationship
     models = Model.query.options(db.joinedload('brand')).filter(Model.year == year).all()
 
+    # for every model, print name, brand, and hq
     if models:
         for model in models:
             print ( "Model name: %s, Brand name: %s, Headquarters: %s" 
