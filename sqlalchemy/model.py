@@ -28,13 +28,17 @@ class Model(db.Model):
               'Brand', 
               backref=db.backref('models', order_by=name))
 
-
     def __repr__(self):
         return "<Model id=%s year=%s brand_name=%s name=%s>" % (self.id,
                                                                 self.year,
                                                                 self.brand_name,
                                                                 self.name)
 
+#NOTE: Ideally the models table would reference the brand id 
+#   (which is the primary key) and not the brand name. The current setup is 
+#   not ideal for normalization. An alternate solution would be to use the brand
+#   name strings as Primary Keys... although this is not suggested for large
+#   databases as it gets messy with moving parts. 
 
 class Brand(db.Model):
     """Car brand."""

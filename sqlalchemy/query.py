@@ -64,7 +64,7 @@ Model.query.filter(Model.name.like('Cor%')).all()
 #6############################################################################
 
 # Get all brands that were founded in 1903 and that are not yet discontinued.
-Brand.query.filter(Brand.founded==1903, Brand.discontinued.is_(None)).all()
+Brand.query.filter(Brand.founded == 1903, Brand.discontinued.is_(None)).all()
 
 ## Alternate Ways ##
 # Brand.query.filter(Brand.founded==1903, Brand.discontinued == None).all()
@@ -100,11 +100,11 @@ def get_model_info(year):
     '''Takes in a year, and prints out each model, brand_name, and brand
     headquarters for that year using only ONE database query.'''
 
-    models = Model.query.filter(Model.year == year).all()
+    models = Model.query.options(db.joinedload('brand')).filter(Model.year == year).all()
 
     if models:
         for model in models:
-            print ( "Model name: %s, Brand name: %s, Headquarers: %s" 
+            print ( "Model name: %s, Brand name: %s, Headquarters: %s" 
                     % (model.name, model.brand_name, model.brand.headquarters))
     else:
         print "No Models for that year"
@@ -120,13 +120,14 @@ def get_model_info(year):
     #         print ", ".join(model)
     # else:
     #     print "No Models for that year"
+    
  
 def get_brands_summary():
     '''Prints out each brand name, and each model name for that brand
      using only ONE database query.'''
 
-    # Query for all brands
-    brands = Brand.query.all()
+    # Query for all brands, preload models relationship
+    brands = Brand.query.options(db.joinedload('models')).all()
 
     # For each brand, print brand name, model, model year
     for brand in brands:
@@ -192,6 +193,10 @@ def search_brands_by_name(mystr):
     search_term = '%{}%'.format(mystr)
     return Brand.query.filter(Brand.name.like(search_term)).all()
 
+    ## Alternate:
+    # return Brand.query.filter(Brand.name.like('%{}%'format(mystr))).all()
+
+
 
 
 def get_models_between(start_year, end_year):
@@ -199,7 +204,9 @@ def get_models_between(start_year, end_year):
      and returns a list of objects that are models with years that fall between 
      the start year (inclusive) and end year (exclusive)."""
 
-    return Model.query.filter(Model.year.between(start_year,end_year)).all()
+    return Model.query.filter(Model.year.in_(range(start_year, end_year))).all()
 
+    ## Alternate:
+    # return Model.query.filter(Model.year.between(start_year,end_year-1)).all()
 
 
