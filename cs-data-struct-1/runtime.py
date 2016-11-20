@@ -1,9 +1,12 @@
 def string_compare(s1, s2):
     """Given two strings, figure out if they are exactly the same (without using ==).
 
+    Worst case: Same except for last letter. 
+    Doing two O(1) operation O(N) times
+
     Put runtime here:
     -----------------
-    [               ]
+    [O(n)]
 
 
     """
@@ -21,9 +24,12 @@ def string_compare(s1, s2):
 def has_exotic_animals(animals):
     """Determine whether a list of animals contains exotic animals.
 
+    Worst case: there are no exotic animals
+    2 O(n) lookups
+
     Put runtime here:
     -----------------
-    [               ]
+    [O(n)]
 
     """
 
@@ -36,9 +42,12 @@ def has_exotic_animals(animals):
 def sum_zero_1(numbers):
     """Find pairs of integers that sum to zero.
 
+    set(list) O(N)
+    2*len(set) O(1) lookups
+
     Put runtime here:
     -----------------
-    [               ]
+    [O(n)]
 
     """
 
@@ -58,9 +67,13 @@ def sum_zero_1(numbers):
 def sum_zero_2(numbers):
     """Find pairs of integers that sum to zero.
 
+    Worst case: no numbers sum to zero
+    Nested for loops: O(n^2) 
+    append to list O(1)
+
     Put runtime here:
     -----------------
-    [               ]
+    [O(n^2)]
 
     """
 
@@ -78,9 +91,14 @@ def sum_zero_3(numbers):
 
     This version gets rid of duplicates (it won't add (1, -1) if (-1, 1) already there.
 
+    O(n^2) nested for loops
+    O(1) comparison (x == -y)
+    O(n) lookup (where n is length of results)
+    O(n^2 + n) --> O(n^2) (only keep largest term due to Asymptotic Behavior)
+
     Put runtime here:
     -----------------
-    [               ]
+    [O(n^2)]
 
     """
 
