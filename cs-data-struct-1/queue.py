@@ -18,15 +18,22 @@ class Queue(object):
     def dequeue(self):
         """Remove item from front of queue and return it."""
 
+        # Runtime O(N)
+
         return self._list.pop(0)
 
     def length(self):
         """Return length of queue."""
 
+        # Runtime O(1)
+
         return len(self._list)
 
     def empty(self):
         """Empty queue."""
+
+        # Runtime O(N) to copy
+        # Don't really see the point of returning a copy
 
         remaining = self._list
         self._list = []
@@ -52,10 +59,8 @@ class Queue(object):
             >>> q.length()
             3
         """
-
-        # FIXME
-
-        pass
+        # Runtime O(1)
+        self._list.append(item)
 
     def peek(self):
         """Return but don't remove the first item in the queue.
@@ -72,9 +77,7 @@ class Queue(object):
             <Queue ['buy flight', 'pack', 'enjoy vacation']>
         """
 
-        # FIXME
-
-        pass
+        return self._list[0]
 
 if __name__ == "__main__":
     import doctest
