@@ -96,6 +96,12 @@ class LinkedList(object):
             >>> ll.get_node_by_index(2)
             <Node fish>
         """
+
+        # Doing it this way, handles the case where the index it out of range
+        # Doc test:
+        # >>> ll.get_node_by_index(5)
+        #
+        
         current = self.head
         i = 0
 
@@ -105,7 +111,7 @@ class LinkedList(object):
             else:
                 i += 1
                 current = current.next
-        # If index is out of range, return None
+
         return None
 
 if __name__ == "__main__":
