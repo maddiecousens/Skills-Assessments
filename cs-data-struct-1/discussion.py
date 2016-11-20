@@ -101,7 +101,10 @@ Other attributes:
    next node. In a doubly-linked list each node has two pointers, one pointing 
    to the previous node and one pointing to the next node.
 
-### ADD more on the benefits of each.
+   Doubly-linked lists consume more space and require more work to maintain
+   when performing operations, however they can be more useful if you need
+   to be able to traverse in two directions. Removing a node in a doubly linked
+   list is easier, as we know the node that precedes it.
 
 3. It is easier to append to a linked list with a tail because linked lists 
    do not have indexes, therefore without a tail we have to walk through each 
