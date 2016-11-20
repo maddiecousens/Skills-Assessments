@@ -42,8 +42,9 @@ def has_exotic_animals(animals):
 def sum_zero_1(numbers):
     """Find pairs of integers that sum to zero.
 
-    set(list) O(N)
+    set(list) O(n)
     2*len(set) O(1) lookups
+    O(2n) --> O(n)
 
     Put runtime here:
     -----------------
@@ -51,15 +52,15 @@ def sum_zero_1(numbers):
 
     """
 
-    result = []
+    result = [] # O(1)
 
     # Hint: the following line, "s = set(numbers)", is O(n) ---
     # we'll learn exactly why later
-    s = set(numbers)
+    s = set(numbers) # O(n)
 
-    for x in s:
-        if -x in s:
-            result.append([-x, x])
+    for x in s: # O(n)
+        if -x in s: # O(1)
+            result.append([-x, x]) # O(1)
 
     return result
 
@@ -77,12 +78,12 @@ def sum_zero_2(numbers):
 
     """
 
-    result = []
+    result = [] # O(1)
 
-    for x in numbers:
-        for y in numbers:
-            if x == -y:
-                result.append((x, y))
+    for x in numbers: # O(n)
+        for y in numbers: # O(n)
+            if x == -y: # O(1)
+                result.append((x, y)) # O(1)
     return result
 
 
@@ -102,10 +103,10 @@ def sum_zero_3(numbers):
 
     """
 
-    result = []
+    result = [] # O(1)
 
-    for x in numbers:
-        for y in numbers:
-            if x == -y and (y, x) not in result:
+    for x in numbers: # O(n)
+        for y in numbers: # O(n)
+            if x == -y and (y, x) not in result: # O(1) + # O(n)
                 result.append((x, y))
     return result

@@ -95,10 +95,12 @@ class Stack(object):
             0
         """
 
-        # Taking advantage of the fact that __iter__ yields self.pop()
+        # Taking advantage of the fact that __iter__ yields self.pop() can write:
 
-        for item in self:
-            pass
+        # for item in self:
+        #     pass
+
+        self._list = []
 
     def is_empty(self):
         """Is stack empty?
