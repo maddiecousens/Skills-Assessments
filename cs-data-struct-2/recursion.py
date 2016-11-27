@@ -12,7 +12,27 @@ def print_item(my_list, i=0):
         3
 
     """
-    pass
+    if i == len(my_list):
+        return
+    print my_list[i]
+    print_item(my_list, i + 1)
+
+# Another way:
+
+# def print_item(my_list):
+#     """Prints each item in a list recursively.
+
+#         >>> print_item([1, 2, 3])
+#         1
+#         2
+#         3
+
+#     """
+#     if not my_list:
+#         return
+
+#     print my_list[0]
+#     print_item(my_list[1:])
 
 
 # 2. Write a function that uses recursion to print each node in a tree.
